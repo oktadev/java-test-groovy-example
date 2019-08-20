@@ -1,6 +1,6 @@
 
 #okta:
 #  oauth2:
-#    issuer: {yourOktaDomain}/oauth2/default
+#    issuer: https://{yourOktaDomain}/oauth2/default
 #    client-id: {clientId}
 #    client-secret: {clientSecret}
