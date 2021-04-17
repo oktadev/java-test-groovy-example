@@ -22,13 +22,11 @@ cd java-test-groovy-example
 
 ### Create an Application in Okta
 
-Log in to your Okta Developer account (or [sign up](https://developer.okta.com/signup/) if you don’t have an account).
+Before you begin, you’ll need a free Okta developer account. Install the [Okta CLI](https://cli.okta.com) and run `okta register` to sign up for a new account. If you already have an account, run `okta login`. Then, run `okta apps create`. Select the default app name, or change it as you see fit. Choose **Web** and press **Enter**.
 
-1. From the **Applications** page, choose **Add Application**.
-2. On the Create New Application page, select **Web**.
-3. Give your app a memorable name (e.g., `Testing is Groovy`), then click **Done**.
+Select **Okta Spring Boot Starter**. Accept the default Redirect URI values provided for you. That is, a Login Redirect of `http://localhost:8080/login/oauth2/code/okta` and a Logout Redirect of `http://localhost:8080`.
 
-Copy your issuer (found under **Security** > **API** > **Authorization Servers**), client ID, and client secret into `src/main/resources/application.properties` as follows:
+Make sure your Okta app’s values are in `src/main/resources/application.properties`.
 
 ```properties
 okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
@@ -36,13 +34,7 @@ okta.oauth2.client-id={yourClientId}
 okta.oauth2.client-secret={yourClientSecret}
 ```
 
-**NOTE:** The value of `{yourOktaDomain}` should be something like `https://dev-123456.okta.com`. Make sure you don't include `-admin` in the value!
-
-After modifying this file, start the app, and you should be able to authenticate with Okta.
-
-```
-./mvnw
-```
+Simply run `./mvnw`, open a new incognito window and browse to `http://localhost:8080/`. You will be prompted to log in – use your new Okta credentials.
 
 ## Links
 
