@@ -1,6 +1,6 @@
 # Testing Java with Groovy
 
-This example demonstrates testing a Spring Boot application with Groovy and Hamcrest.  Please read [Make Java tests Groovy again].
+This example demonstrates testing a Spring Boot application with Groovy and Hamcrest. Please read [Make Java tests Groovy with Hamcrest](https://developer.okta.com/blog/2019/08/21/make-java-tests-groovy).
 
 **Prerequisites:** [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html/).
 
@@ -28,19 +28,17 @@ Log in to your Okta Developer account (or [sign up](https://developer.okta.com/s
 2. On the Create New Application page, select **Web**.
 3. Give your app a memorable name (e.g., `Testing is Groovy`), then click **Done**.
 
-Copy your issuer (found under **API** > **Authorization Servers**), client ID, and client secret into `src/main/resources/application.yml` as follows:
+Copy your issuer (found under **Security** > **API** > **Authorization Servers**), client ID, and client secret into `src/main/resources/application.properties` as follows:
 
-```yaml
-okta:
-  oauth2:
-    issuer: {yourOktaDomain}/oauth2/default
-    client-id: {clientId}
-    client-secret: {clientSecret}
+```properties
+okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
+okta.oauth2.client-id={yourClientId}
+okta.oauth2.client-secret={yourClientSecret}
 ```
 
 **NOTE:** The value of `{yourOktaDomain}` should be something like `https://dev-123456.okta.com`. Make sure you don't include `-admin` in the value!
 
-After modifying this file, start the app and you should be able to authenticate with Okta.
+After modifying this file, start the app, and you should be able to authenticate with Okta.
 
 ```
 ./mvnw
@@ -61,4 +59,4 @@ Please post any questions as comments on the [Make Java tests Groovy again], or 
 
 Apache 2.0, see [LICENSE](LICENSE).
 
-[Make Java tests Groovy again]: https://developer.okta.com/blog/TBD
+[Make Java tests Groovy again]: https://developer.okta.com/blog/2019/08/21/make-java-tests-groovy
